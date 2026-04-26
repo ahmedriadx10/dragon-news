@@ -7,7 +7,7 @@ const Navlink = ({href,children}) => {
   
   return (
     <Link  href={href
-    } className={`${href===path?'border-b-2 border-(--pink) font-medium':''}`}>
+    } className={`${href===path ?'border-b-2 border-(--pink) font-medium':''}`}>
       {children}
     </Link>
   );

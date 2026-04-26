@@ -19,7 +19,7 @@ const HeadlineMarquee = () => {
     <div className="py-4 px-2.5 bg-zinc-100 flex">
 <Button className=' rounded-lg bg-(--pink)'  size="lg" >Latest</Button>
 <Marquee pauseOnHover={true}>
-{newsHeadlines.map((n,inx)=><p key={inx} className="font-semibold mr-5 flex gap-2 items-center"><span>{n}</span> <GiNewspaper className="text-xl text-(--dark-2)"/></p>)}
+{newsHeadlines.map((n,inx)=><p key={inx} className="font-semibold mr-5 flex gap-1.5 items-center"><GiNewspaper className="text-xl text-(--dark-2)"/><span>{n}</span> </p>)}
 </Marquee>      
     </div>
   );
