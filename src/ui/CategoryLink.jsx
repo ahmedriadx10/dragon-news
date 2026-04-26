@@ -13,7 +13,7 @@ const CategoryLink = ({linkData}) => {
 
 
   return (
-    <Link href={`/news/${category_id}`} className={`${pathEnd?'border-2 border-b border-red-600':''}`}  >
+    <Link href={`/news/${category_id}`} className={`py-4  text-center block  ${pathEnd?'bg-[#E7E7E7]  rounded-[5px]  text-(--dark-2)':'text-(--dark-4)'}`}  >
       {category_name}
     </Link>
   );

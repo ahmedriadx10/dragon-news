@@ -8,8 +8,12 @@ console.log(newsData)
 
   
   return (
-    <div>
-      {newsData.map(x=><NewsCard newsData={x} key={x['_id']} />)}
+    <div className="col-span-4 ">
+  <h4 className="text-xl font-semibold text-(--dark-2) mb-5">Dragon News</h4>
+
+     <div>
+       {newsData.map(x=><NewsCard newsData={x} key={x['_id']} />)}
+     </div>
 
     </div>
   );
