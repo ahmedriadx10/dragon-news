@@ -19,8 +19,8 @@ export const getCategoryWiseNews=async(id)=>{
 
 export const getDetailsNews=async(id)=>{
 
-  const res=fetch( `https://openapi.programming-hero.com/api/news/${id}`)
+  const res=await fetch( `https://openapi.programming-hero.com/api/news/${id}`)
   const detailsNews=await res.json()
 
-return detailsNews
+return detailsNews.data[0]
 }
