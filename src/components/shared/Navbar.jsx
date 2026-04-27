@@ -2,9 +2,10 @@ import Navlink from "@/ui/Navlink";
 import { Button } from "@heroui/react";
 import Image from "next/image";
 import profileImage from '@/assets/user.png'
+import Link from "next/link";
 const Navbar = () => {
   return (
-    <nav className="flex py-21.25 justify-between items-center max-w-7xl mx-auto w-[90%]">
+    <nav className="flex py-10 justify-between items-center max-w-7xl mx-auto w-[90%]">
       
 <div></div>
 <ul className="flex text-(--dark-3) gap-3">
@@ -15,7 +16,7 @@ const Navbar = () => {
 <div className="flex items-center gap-2.25">
 
 <Image src={profileImage} alt="user profile image" width={41} height={41} loading="eager" />
-<Button className='bg-(--dark-2) rounded-lg '>SignIn</Button>
+<Link href={'/login'}><Button className='bg-(--dark-2) rounded-lg '>SignIn</Button> </Link>
 </div>
     </nav>
   );

@@ -1,9 +1,10 @@
+import Navbar from "@/components/shared/Navbar";
 
 const AuthLayout = ({children}) => {
   return (
     <div>
 
-<h2>I am from auth Layout</h2>
+<Navbar/>
       {children}
     </div>
   );
