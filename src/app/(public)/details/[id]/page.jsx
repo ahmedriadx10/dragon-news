@@ -9,7 +9,7 @@ const DetailsPage = async ({params}) => {
 
   const newsDetials=await getDetailsNews(id)
 
- const {_id,category_id,total_view,title,image_url,details,}=newsDetials
+ const {category_id,title,image_url,details,}=newsDetials
 
   return (
    <div className="border border-zinc-200 rounded-lg mb-7.5 p-7.5 overflow-hidden max-w-4xl mx-auto w-[90%]">
