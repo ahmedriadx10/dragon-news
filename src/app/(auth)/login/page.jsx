@@ -1,21 +1,33 @@
 "use client";
 
 
-import { handleFormAction } from "@/server-acitons/formAction";
+import { authClient } from "@/lib/auth-client";
 import {Button, Description, FieldError, Form, Input, Label, TextField} from "@heroui/react";
 import Link from "next/link";
-
-import React from 'react';
+import { useState } from "react";
 
 const LoginPage = () => {
 
-//   const handleSubmit=(e)=>{
-//     e.preventDefault()
+  const [loginError,setLoginError]=useState('')
 
-// const email=e.target.email.value
-// const password=e.target.password.value
-// console.log({email,password})
-//   }
+const handleSubmit=async(e)=>{
+e.preventDefault()
+  const formData=new FormData(e.target)
+  const formDataObj=Object.fromEntries(formData.entries())
+  const { data, error } = await authClient.signIn.email(
+      {
+        ...formDataObj,
+callbackURL:'/news/01'
+      },
+    
+  
+    );
+
+if(error){
+  setLoginError(error.message)
+}
+
+}
 
    return (
  <div className="bg-snow rounded border shadow max-w-188 mx-auto w-[90%] py-10 px-5 md:py-20 md:px-16">
@@ -23,7 +35,7 @@ const LoginPage = () => {
 <h6 className="text-(--dark-2) text-2xl md:text-4xl font-semibold text-center border-b border-zinc-300 pb-10">Login Your account</h6>
      <Form
       className="flex flex-col gap-4 mt-10 p-2.5 md:p-5"
-   action={handleFormAction}
+onSubmit={handleSubmit}
     >
       <TextField
         isRequired
@@ -40,6 +52,7 @@ const LoginPage = () => {
         <Label className="text-(--dark-2) text-xl font-semibold">Email</Label>
      <Input placeholder="Enter your email address" className=' shadow-none p-4.5 bg-[#F3F3F3] rounded-lg placeholder:text-(--dark-4) placeholder:text-[16px]'/>
         <FieldError />
+
       </TextField>
 
       <TextField
@@ -63,8 +76,14 @@ const LoginPage = () => {
       >
         <Label className="text-(--dark-2) text-xl font-semibold">Password</Label>
       <Input placeholder="Enter your  password" className=' shadow-none p-4.5 bg-[#F3F3F3] rounded-lg placeholder:text-(--dark-4) placeholder:text-[16px]'/>
-        <Description>Must be at least 8 characters with 1 uppercase and 1 number</Description>
+
         <FieldError />
+
+        {loginError&&(<>
+        <span className="text-red-500 italic">{loginError}</span>
+   
+        </>
+      )}
       </TextField>
 
       <div className="flex gap-2">
