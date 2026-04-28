@@ -9,7 +9,7 @@ const CategoryNews =async ({id}) => {
 
   
   return (
-    <div className="col-span-4 ">
+    <div className="col-span-full md:col-span-6 lg:col-span-4 ">
   <h4 className="text-xl font-semibold text-(--dark-2) mb-5">Dragon News</h4>
 
      <div>

@@ -9,10 +9,10 @@ const CategorySide = async() => {
 
  
   return (
-    <div className="col-span-2">
+    <div className="col-span-full md:col-span-2">
       <h4 className="text-xl font-semibold text-(--dark-2)  mb-5">All Category</h4>
 
-      <div className="flex flex-col">
+      <div className="flex flex-wrap justify-center  md:flex-col">
 {news_category.map(x=><CategoryLink  linkData={x} key={x.category_id}/>)}
 
       </div>
