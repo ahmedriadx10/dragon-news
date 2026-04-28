@@ -1,4 +1,6 @@
-
+export const metadata = {
+  title: 'Dragon News | Carrer',
+}
 const CarrerPage = () => {
   return (
     <div>

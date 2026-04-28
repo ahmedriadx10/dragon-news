@@ -15,6 +15,7 @@ import { redirect } from "next/navigation";
 import React from "react";
 import toast from "react-hot-toast";
 
+
 const RegisterPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -22,25 +23,20 @@ const RegisterPage = () => {
 
     const formDataObj = Object.fromEntries(formData.entries());
 
-
-
     const { data, error } = await authClient.signUp.email(
       {
         ...formDataObj,
       },
       {
         onSuccess: () => {
-
-     
           redirect("/");
         },
       },
     );
 
-    if(error){
-      toast.error(error.message)
+    if (error) {
+      toast.error(error.message);
     }
-    
   };
 
   return (

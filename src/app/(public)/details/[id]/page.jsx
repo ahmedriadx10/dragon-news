@@ -4,6 +4,21 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaArrowLeft } from "react-icons/fa";
 
+export async function generateMetadata({params}){
+
+const {id}=await params
+
+  const newsDetials=await getDetailsNews(id)
+
+return {
+  title:newsDetials.title,
+      openGraph: {
+      image: newsDetials.image_url,
+    },
+}
+
+}
+
 const DetailsPage = async ({params}) => {
   const {id}=await params
 

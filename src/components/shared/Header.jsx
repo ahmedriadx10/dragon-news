@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <header className="text-center py-12.5 space-y-2.5 w-[90%] mx-auto">
 <div>
-  <Image src={headerLogo} className="mx-auto aspect-auto" alt="dragon news logo" width={480} height={60} loading="eager" />
+  <Image src={headerLogo} className="mx-auto " alt="dragon news logo" width={480} height={60} loading="eager" />
 </div>
 
 <p className="text-(--dark-3) text-lg">Journalism Without Fear or Favour</p>
