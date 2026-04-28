@@ -4,13 +4,13 @@ import { Button } from "@heroui/react";
 import {  useRouter } from "next/navigation";
 
 const LogoutBtn = ({children}) => {
-const router=useRouter
+const router=useRouter()
 
 const handleLogout= async()=>{
 await authClient.signOut({
 fetchOptions:{
   onSuccess:()=>{
-router.replace('/')
+router.replace('/login')
   }
 }
 });
