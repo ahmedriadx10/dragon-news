@@ -35,7 +35,7 @@ const RightSideArea = () => {
         <h4 className="text-xl font-semibold text-(--dark-2)  mb-5">Login With</h4>
 
 
-<div className="flex w-full  flex-col gap-3 border">
+<div className="flex w-full  flex-col gap-3 ">
       <Button className="w-full rounded-lg border border-blue-500" variant="ghost" onPress={handleGoogleSignIn}>
         <Icon icon="devicon:google" />
        Login with Google
