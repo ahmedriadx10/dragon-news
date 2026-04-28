@@ -1,5 +1,6 @@
 import {  Poppins } from "next/font/google";
 import "./globals.css";
+import { Toaster } from "react-hot-toast";
 
 
 
@@ -20,7 +21,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`h-full antialiased`}>
-      <body className={`min-h-full ${poppins.className}` }>{children}</body>
+      <body className={`min-h-full ${poppins.className}` }>{children}
+
+        <Toaster
+  position="top-center"
+  reverseOrder={false}
+/>
+      </body>
     </html>
   );
 }

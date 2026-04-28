@@ -13,6 +13,7 @@ import {
 import { redirect } from "next/navigation";
 
 import React from "react";
+import toast from "react-hot-toast";
 
 const RegisterPage = () => {
   const handleSubmit = async (e) => {
@@ -21,18 +22,25 @@ const RegisterPage = () => {
 
     const formDataObj = Object.fromEntries(formData.entries());
 
+
+
     const { data, error } = await authClient.signUp.email(
       {
         ...formDataObj,
       },
       {
         onSuccess: () => {
+
+     
           redirect("/");
         },
       },
     );
 
-    console.log({ data, error });
+    if(error){
+      toast.error(error.message)
+    }
+    
   };
 
   return (
@@ -54,7 +62,7 @@ const RegisterPage = () => {
           />
           <FieldError />
         </TextField>
-        <TextField isRequired name="photoUrl" type="text">
+        <TextField isRequired name="image" type="text">
           <Label className="text-(--dark-2) text-xl font-semibold">
             Photo URL
           </Label>
