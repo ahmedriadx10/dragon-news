@@ -1,3 +1,4 @@
+'use client'
 import { Button } from "@heroui/react";
 import {Icon} from "@iconify/react";
 import classShowImg from '@/assets/class.png'
@@ -6,18 +7,40 @@ import swimmingShow from '@/assets/swimming.png'
 import instagramImg from '@/assets/instagram.png'
 import Image from "next/image";
 import { FaFacebook, FaTwitter } from "react-icons/fa";
+import { authClient } from "@/lib/auth-client";
 const RightSideArea = () => {
+
+  const handleGoogleSignIn=async()=>{
+
+    const data = await authClient.signIn.social({
+    provider: "google",
+  });
+
+
+  }
+
+  const handleGithubSign=async()=>{
+
+     const data = await authClient.signIn.social({
+        provider: "github"
+    })
+
+
+  }
+
+
+
   return (
     <div className=" col-span-2">
         <h4 className="text-xl font-semibold text-(--dark-2)  mb-5">Login With</h4>
 
 
 <div className="flex w-full max-w-xs flex-col gap-3">
-      <Button className="w-full rounded-lg border border-blue-500" variant="ghost">
+      <Button className="w-full rounded-lg border border-blue-500" variant="ghost" onPress={handleGoogleSignIn}>
         <Icon icon="devicon:google" />
        Login with Google
       </Button>
-      <Button className="w-full rounded-lg border border-neutral-500" variant="ghost">
+      <Button className="w-full rounded-lg border border-neutral-500" variant="ghost" onPress={handleGithubSign}>
         <Icon icon="mdi:github" />
         Login with GitHub
       </Button>
